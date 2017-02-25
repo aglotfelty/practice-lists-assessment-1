@@ -243,11 +243,14 @@ def average(numbers):
     """
 
     total_sum = 0
+    if len(numbers) == 0:
+        return """You have provided an empty list. There is no average because
+        there are no numbers. Please try again with a list of numbers."""
     for num in numbers:
         total_sum += num
     number_of_numbers = float(len(numbers))
-    average = total_sum / number_of_numbers
-    return average
+    mean = total_sum / number_of_numbers
+    return mean
 
 
 def join_strings_with_comma(words):

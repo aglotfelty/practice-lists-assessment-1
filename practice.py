@@ -359,8 +359,9 @@ def duplicates(items):
     items.sort()
     duplicate_words = []
     list_length = len(items)
+    last_index = list_length - 1
     for item in items:
-        if item in items[items.index(item) + 1 : list_length - 1]:
+        if item in items[items.index(item) + 1 : last_index]:
             if item not in duplicate_words:
                 duplicate_words.append(item)
     return duplicate_words
@@ -393,7 +394,17 @@ def find_letter_indices(words, letter):
     `None`.)
     """
 
-    return []
+    letter_index_list = []
+    letter_index = None
+    for word in words:
+        for index in range(len(word)):
+            if word[index] == letter:
+                letter_index_list.append(index) 
+                break
+        else:
+            letter_index_list.append(None)
+
+    return letter_index_list
 
 #####################################################################
 # END OF PRACTICE: You can ignore everything below.

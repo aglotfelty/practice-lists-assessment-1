@@ -85,7 +85,13 @@ def smallest_int(numbers):
         True
     """
 
-    return 100
+    if len(numbers) == 0:
+        return None
+    smallest_int = numbers[0]
+    for num in numbers:
+        if num < smallest_int:
+            smallest_int = num
+    return smallest_int
 
 
 def largest_int(numbers):
@@ -107,7 +113,14 @@ def largest_int(numbers):
         True
     """
 
-    return 0
+    largest_int = None
+    for num in numbers:
+        if type(num) is not int:
+            continue
+        elif num > largest_int:
+            largest_int = num
+
+    return largest_int
 
 
 def halvesies(numbers):

@@ -356,7 +356,14 @@ def duplicates(items):
         ['apple', 'apple', 'berry']
     """
 
-    return []
+    items.sort()
+    duplicate_words = []
+    list_length = len(items)
+    for item in items:
+        if item in items[items.index(item) + 1 : list_length - 1]:
+            if item not in duplicate_words:
+                duplicate_words.append(item)
+    return duplicate_words
 
 
 def find_letter_indices(words, letter):
